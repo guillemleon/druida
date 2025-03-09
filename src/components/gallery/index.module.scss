@@ -1,0 +1,27 @@
+.gridContainer {
+  column-count: 3;
+  column-gap: 10px;
+  z-index: 2;
+  width: 760px;
+}
+
+.gridItem {
+  display: inline-block;
+  width: 240px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

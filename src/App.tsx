@@ -1,11 +1,24 @@
 import React from "react";
-import styles from "./main.module.scss";
+import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomeContainer from "./pages/home";
+import AboutContainer from "./pages/about";
+import ContactContainer from "./pages/contact";
+import DesignContainer from "./pages/design";
+import IllustrationContainer from "./pages/illustration";
 
 const App: React.FC = () => {
   return (
-    <div className={styles.container}>
-      <h1>¡Hola, mundo!</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeContainer />} />
+        <Route path="/about" element={<AboutContainer />} />
+        <Route path="/contact" element={<ContactContainer />} />
+        <Route path="/design" element={<DesignContainer />} />
+        <Route path="/illustration" element={<IllustrationContainer />} />
+        <Route path="*" element={<div>NOT FOUND</div>} /> {/* Page 404 */}
+      </Routes>
+    </Router>
   );
 };
 
