@@ -6,6 +6,7 @@ import AboutContainer from "./pages/about";
 import ContactContainer from "./pages/contact";
 import DesignContainer from "./pages/design";
 import IllustrationContainer from "./pages/illustration";
+import ProjectContainer from "./pages/project";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,8 @@ const App: React.FC = () => {
         <Route path="/contact" element={<ContactContainer />} />
         <Route path="/design" element={<DesignContainer />} />
         <Route path="/illustration" element={<IllustrationContainer />} />
+        <Route path="/design/:id" element={<ProjectContainer />} />
+        <Route path="/illustration/:id" element={<ProjectContainer />} />
         <Route path="*" element={<div>NOT FOUND</div>} /> {/* Page 404 */}
       </Routes>
     </Router>

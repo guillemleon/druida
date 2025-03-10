@@ -1,24 +1,26 @@
-import React, { useState } from "react";
-import Layout, { Page } from "../../components/layout";
+import React from "react";
+import { Page } from "../../components/layout";
 import { PAGE_IDS } from "../../config/variables";
-import styles from "./index.module.scss";
-import Gallery from "../../components/gallery";
 import { designProjects } from "../../config/projects";
+import ProjectsContainer from "../../components/projects";
+import { useNavigate } from "react-router-dom";
 
 function DesignContainer() {
+  const navigate = useNavigate();
+
+  const onClick = (project: any) => {
+    navigate(`/design/${project.id}`, {
+      state: { ...project, type: PAGE_IDS.design },
+    });
+  };
+
   return (
-    <Layout
-      headerConfig={{
-        currentPage: PAGE_IDS.design as Page,
-      }}
-    >
-      <div className={styles.overlayer} />
-      <div className={styles.background} />
-      <div className={styles.container}>
-        <h1 className={styles.title}>.·. Projects .·.</h1>
-        <Gallery items={designProjects} />
-      </div>
-    </Layout>
+    <ProjectsContainer
+      pageId={PAGE_IDS.design as Page}
+      data={designProjects}
+      title=".·. Projects .·."
+      onClick={onClick}
+    />
   );
 }
 

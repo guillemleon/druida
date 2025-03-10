@@ -1,24 +1,26 @@
 import React from "react";
-import Layout, { Page } from "../../components/layout";
+import { Page } from "../../components/layout";
 import { PAGE_IDS } from "../../config/variables";
-import styles from "./index.module.scss";
-import Gallery from "../../components/gallery";
 import { illustrationProjects } from "../../config/projects";
+import ProjectsContainer from "../../components/projects";
+import { useNavigate } from "react-router-dom";
 
 function IllustrationContainer() {
+  const navigate = useNavigate();
+
+  const onClick = (project: any) => {
+    navigate(`/illustration/${project.id}`, {
+      state: { ...project, type: PAGE_IDS.illustration },
+    });
+  };
+
   return (
-    <Layout
-      headerConfig={{
-        currentPage: PAGE_IDS.illustration as Page,
-      }}
-    >
-      <div className={styles.overlayer} />
-      <div className={styles.background} />
-      <div className={styles.container}>
-        <h1 className={styles.title}>.·. Art .·.</h1>
-        <Gallery items={illustrationProjects} />
-      </div>
-    </Layout>
+    <ProjectsContainer
+      pageId={PAGE_IDS.illustration as Page}
+      data={illustrationProjects}
+      title=".·. Art .·."
+      onClick={onClick}
+    />
   );
 }
 

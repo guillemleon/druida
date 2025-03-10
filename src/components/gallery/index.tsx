@@ -7,13 +7,22 @@ interface Item {
   title: string;
 }
 
-const Gallery = ({ items }: { items: Item[] }) => {
+interface GalleryInterface {
+  items: Item[];
+  onItemClick: any;
+}
+
+const Gallery = ({ items, onItemClick }: GalleryInterface) => {
   return (
     <div className={styles.gridContainer}>
       {items.map((item) => (
-        <div key={item.id} className={styles.gridItem}>
+        <button
+          key={item.id}
+          className={styles.gridItem}
+          onClick={() => onItemClick && onItemClick(item)}
+        >
           <img loading="lazy" src={item.imageUrl} alt={item.title} />
-        </div>
+        </button>
       ))}
     </div>
   );
