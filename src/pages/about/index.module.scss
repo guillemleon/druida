@@ -61,3 +61,35 @@
   height: 600px;
   background: linear-gradient(to top, #151515, transparent);
 }
+
+@media screen and (max-width: 960px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .left,
+  .right {
+    padding: 10px 30px;
+  }
+
+  .overlayer {
+    bottom: -1px;
+  }
+
+  .infoContainer {
+    align-items: flex-start;
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  .description {
+    width: 100%;
+    text-align: left;
+  }
+
+  .backgroundTitle {
+    font-size: 40px;
+  }
+}
