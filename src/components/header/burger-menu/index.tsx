@@ -1,8 +1,14 @@
 // BurgerMenu.tsx
 import React, { useEffect, useState } from "react";
-import styles from "./index.module.scss"; // Importamos los estilos
+import styles from "./index.module.scss";
+import { Link } from "react-router-dom";
+import useHover from "../../../hooks/useHover";
+import logoWhite from "../../../assets/images/logo/logo_white.png";
+import logoColor from "../../../assets/images/logo/logo_color.png";
 
 const BurgerMenu: React.FC = () => {
+  const { ref, isHovered } = useHover();
+
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -15,6 +21,14 @@ const BurgerMenu: React.FC = () => {
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
+      <div className={styles.logoContainer}>
+        <Link to="/" ref={ref}>
+          <img
+            src={isHovered ? logoColor : logoWhite}
+            className={styles.logo}
+          />
+        </Link>
+      </div>
       <div className={styles.burgerIcon} onClick={toggleMenu}>
         <span className={styles.burgerLine}></span>
         <span className={styles.burgerLine}></span>

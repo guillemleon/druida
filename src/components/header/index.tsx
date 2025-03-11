@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 import { Page } from "../layout";
+import logoWhite from "../../assets/images/logo/logo_white.png";
+import logoColor from "../../assets/images/logo/logo_color.png";
+import useHover from "../../hooks/useHover";
 
 interface HeaderInterface {
   displayPrimaryLinks: boolean;
@@ -9,6 +12,8 @@ interface HeaderInterface {
 }
 
 function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
+  const { ref, isHovered } = useHover();
+
   return (
     <header className={styles.container}>
       <nav className={styles.content}>
@@ -33,6 +38,14 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
                 }`}
               >
                 .·. About .·.
+              </Link>
+            </li>
+            <li ref={ref}>
+              <Link to="/">
+                <img
+                  src={isHovered ? logoColor : logoWhite}
+                  className={styles.logo}
+                />
               </Link>
             </li>
             <li>

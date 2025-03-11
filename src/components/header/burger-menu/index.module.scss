@@ -83,3 +83,14 @@
     }
   }
 }
+
+.logoContainer {
+  position: absolute;
+  z-index: 2;
+  top: 30px;
+  left: calc(50vw - 50px);
+}
+
+.logo {
+  width: 100px;
+}
