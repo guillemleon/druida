@@ -33,7 +33,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://guillemleon.github.io/druida/",
+  "homepage": "/druida",
   "browserslist": {
     "production": [
       ">0.2%",
