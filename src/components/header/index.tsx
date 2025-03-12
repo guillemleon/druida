@@ -12,7 +12,7 @@ interface HeaderInterface {
 }
 
 function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
-  const { ref, isHovered } = useHover();
+  const { ref, isHovered } = useHover<HTMLLIElement>();
 
   return (
     <header className={styles.container}>
@@ -45,6 +45,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
                 <img
                   src={isHovered ? logoColor : logoWhite}
                   className={styles.logo}
+                  alt="logo"
                 />
               </Link>
             </li>

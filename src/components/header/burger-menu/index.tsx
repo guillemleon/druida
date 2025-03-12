@@ -7,7 +7,7 @@ import logoWhite from "../../../assets/images/logo/logo_white.png";
 import logoColor from "../../../assets/images/logo/logo_color.png";
 
 const BurgerMenu: React.FC = () => {
-  const { ref, isHovered } = useHover();
+  const { ref, isHovered } = useHover<HTMLImageElement>();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,10 +22,12 @@ const BurgerMenu: React.FC = () => {
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
       <div className={styles.logoContainer}>
-        <Link to="/" ref={ref}>
+        <Link to="/">
           <img
+            ref={ref}
             src={isHovered ? logoColor : logoWhite}
             className={styles.logo}
+            alt="logo"
           />
         </Link>
       </div>
